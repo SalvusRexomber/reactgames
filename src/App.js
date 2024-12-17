@@ -8,7 +8,7 @@ function Home() {
 
   return (
     <div className="App">
-      <h1>The tasks on this website are based on ideas from <a href="https://medium.com/@rohan.fulzele/50-beginner-and-intermediate-level-react-project-ideas-%EF%B8%8F-809b396faa39">Rohan Fulzele's article on Medium.</a></h1>
+      <h1>A little practice and fun with the todo list</h1>
       <button onClick={() => navigate("/tasks/todolist")} type="button"> TODO LIST </button>
     </div>
   );
