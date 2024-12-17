@@ -1,0 +1,235 @@
+$border-radius: 5px;
+$font-size: 16px;
+$font-size-mobile: 14px;
+$color-gray: gray;
+$color-white: white;
+$color-green: green;
+$color-blue: blue;
+$color-red: red;
+$color-black: black;
+$background-delete-button: #f44336;
+$background-calendar-button: #2196F3;
+$background-success: #4CAF50;
+
+.todoListPage {
+  margin: 20px;
+}
+
+.todoInput {
+  width: 80%;
+  font-size: $font-size;
+  border: 1px solid #ccc;
+  border-radius: $border-radius;
+  margin: 10px auto;
+  display: flex;
+  flex-wrap: wrap;
+
+  input {
+    width: 40%;
+    padding: 10px;
+    font-size: $font-size;
+    border: 1px solid #ccc;
+    border-radius: $border-radius;
+    margin: 10px;
+    flex: 1;
+  }
+
+  button {
+    padding: 10px;
+    font-size: $font-size;
+    border: 1px solid #ccc;
+    border-radius: $border-radius;
+    background-color: $background-success;
+    color: $color-white;
+    cursor: pointer;
+    margin: 10px;
+  }
+}
+
+.todoListHeader,
+.todoListItem {
+  max-width: 90%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 50px 1fr 150px 100px 100px 80px 100px;
+  align-items: center;
+  text-align: center;
+  gap: 5px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.todoListHeader {
+  background-color: $color-black;
+  color: $color-white;
+  font-weight: bold;
+  font-size: $font-size;
+  border-top-left-radius: $border-radius;
+  border-top-right-radius: $border-radius;
+}
+
+.todoListItem {
+  background-color: $color-white;
+  color: $color-black;
+  font-size: $font-size;
+  border: 1px solid $color-black;
+  border-top: none;
+
+  &:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+}
+
+.taskCheckbox {
+  justify-self: center;
+}
+
+.taskText {
+  justify-self: start;
+  padding-left: 10px;
+  text-align: left;
+}
+
+.taskDate {
+  font-size: $font-size;
+  padding: 5px;
+  text-align: center;
+}
+
+.taskPriority {
+  font-size: $font-size;
+  text-transform: lowercase;
+
+  &.low {
+    color: $color-green;
+  }
+
+  &.normal {
+    color: $color-blue;
+  }
+
+  &.high {
+    color: $color-red;
+    font-weight: bold;
+  }
+}
+
+.saveButton,
+.loadButton,
+.deleteButton,
+.sendToCalendarButton {
+  justify-self: center;
+  padding: 5px 10px;
+  font-size: $font-size - 2;
+  color: $color-white;
+  border-radius: $border-radius;
+  border: none;
+  cursor: pointer;
+
+    &.saveButton {
+        margin: 10px auto;
+        padding: 10px;
+        background-color: $color-green;
+        color: $color-white;
+        border: none;
+        border-radius: $border-radius;
+        cursor: pointer;
+        display: block;
+        text-align: center;
+    
+        &:hover {
+        background-color: darken($color-green, 10%);
+        }
+    }
+
+    &.loadButton {
+        background-color: $color-blue;
+        margin: 10px auto;
+        padding: 10px;
+        color: $color-white;
+        border: none;
+        border-radius: $border-radius;
+        cursor: pointer;
+        display: block;
+        text-align: center;
+        &:hover {
+        background-color: darken($color-blue, 10%);
+        }
+    }
+
+  &.deleteButton {
+    background-color: $background-delete-button;
+
+    &:hover {
+      background-color: darken($background-delete-button, 10%);
+    }
+  }
+
+  &.sendToCalendarButton {
+    background-color: $background-calendar-button;
+
+    &:hover {
+      background-color: darken($background-calendar-button, 10%);
+    }
+  }
+}
+
+.deleteSelectedButton {
+  margin: 10px auto;
+  padding: 10px;
+  background-color: $color-red;
+  color: $color-white;
+  border: none;
+  border-radius: $border-radius;
+  cursor: pointer;
+  display: block;
+  text-align: center;
+
+  &:disabled {
+    background-color: $color-gray;
+    cursor: not-allowed;
+  }
+}
+
+@media (max-width: 768px) {
+  .todoListHeader {
+    display: none;
+  }
+
+  .todoListItem {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border: 1px solid $color-black;
+    margin-bottom: 10px;
+
+    .taskCheckbox {
+      order: 1;
+    }
+
+    .taskText {
+      order: 2;
+      font-size: $font-size-mobile;
+      text-align: left;
+      font-weight: bold;
+    }
+
+    .taskDate {
+      order: 3;
+      font-size: $font-size-mobile;
+      color: $color-gray;
+    }
+
+    .taskPriority {
+      order: 4;
+      font-size: $font-size-mobile;
+    }
+
+    .deleteButton,
+    .sendToCalendarButton {
+      order: 5;
+      width: 100%; 
+      margin: 5px 0;
+    }
+  }
+}
