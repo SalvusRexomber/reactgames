@@ -36,8 +36,8 @@ function TodoList() {
   const saveTasksToFirestore = async () => {
     try {
       const docRef = await addDoc(collection(db, "todos"), {
-        tasks: tasks, // a teljes tasks tömb elmentése
-        timestamp: new Date(), // időbélyeg
+        tasks: tasks,
+        timestamp: new Date(),
       });
       alert("To-do lista sikeresen mentve!");
       console.log("Document written with ID: ", docRef.id);
@@ -52,9 +52,9 @@ function TodoList() {
       const querySnapshot = await getDocs(collection(db, "todos"));
       const loadedTasks = [];
       querySnapshot.forEach((doc) => {
-        loadedTasks.push(...doc.data().tasks); // Feladatok hozzáadása
+        loadedTasks.push(...doc.data().tasks);
       });
-      setTasks(loadedTasks); // Állapot frissítése a lekérdezett feladatokkal
+      setTasks(loadedTasks);
     } catch (error) {
       console.error("Hiba történt az adatlekérés során: ", error);
     }
@@ -73,7 +73,7 @@ function TodoList() {
         text: taskInput,
         date: taskDate || "",
         priority: taskPriority,
-        isDone: false, // Új feladat alapértelmezés szerint nincs elvégezve
+        isDone: false, 
       };
       setTasks([...tasks, newTask]);
       setTaskInput("");
@@ -129,13 +129,11 @@ function TodoList() {
           Save Tasks
         </button>
 
-        {/* Gomb a Firestore-ból történő adatlekéréshez */}
         <button onClick={loadTasksFromFirestore} className="loadButton">
           Load Tasks
         </button>
 
         <div>
-          {/* Header hozzáadása */}
           <div className="todoListHeader">
             <span className="headerItem">Done?</span>
             <span className="headerItem">Task description</span>

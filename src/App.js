@@ -8,8 +8,9 @@ function Home() {
 
   return (
     <div className="App">
-      <h1>A little practice and fun with the todo list</h1>
-      <button onClick={() => navigate("/tasks/todolist")} type="button"> TODO LIST </button>
+      <h1>A little practice and fun with the todo list:</h1>
+      <button className="todolistbutton" onClick={() => navigate("/tasks/todolist")} type="button"> TODO LIST </button>
+      <a href="https://github.com/SalvusRexomber/reactgames" class="documentation">Documentation</a>
     </div>
   );
 }

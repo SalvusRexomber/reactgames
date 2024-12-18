@@ -1,5 +1,21 @@
 .App {
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.documentation{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+  background-color: black;
+  color:blanchedalmond;
+  border-radius: 5px;
+  padding: 8px;
 }
 
 .App-logo {
@@ -26,6 +42,16 @@
 
 .App-link {
   color: #61dafb;
+}
+
+.todolistbutton {
+  background-color: #282c34;
+  color: white;
+  border: 2px solid white;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px;
+  cursor: pointer;
 }
 
 @keyframes App-logo-spin {
